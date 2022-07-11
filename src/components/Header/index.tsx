@@ -1,4 +1,4 @@
-import logoCoffee from './assets/logo-coffee.svg'
+import logoCoffee from '../../assets/logo-coffee.svg'
 
 export function Header() {
   return (
