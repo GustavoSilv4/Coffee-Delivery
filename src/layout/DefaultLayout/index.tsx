@@ -4,7 +4,7 @@ import { Header } from '../../components/Header'
 export function DefaultLayout() {
   return (
     <>
-      <Header />
+      <Header location="Rio de Janeiro, RJ" />
       <Outlet />
     </>
   )
