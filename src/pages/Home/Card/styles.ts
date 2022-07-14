@@ -18,8 +18,13 @@ export const CardContainer = styled.div`
   }
 `
 
-export const Type = styled.span`
+export const CoffeeTypes = styled.div`
   margin: 0.75rem 0;
+  display: flex;
+`
+
+export const Type = styled.span`
+  margin-right: 0.25rem;
   padding: 0.25rem 0.5rem;
   border-radius: 100px;
   font-size: 0.625rem;
@@ -77,8 +82,9 @@ export const Price = styled.h3`
 
 export const QuantityInput = styled.input`
   text-align: center;
-  width: 2rem;
+  width: 2.1rem;
   padding: 0.5rem;
+  outline: none;
   border: none;
 
   &::-webkit-inner-spin-button {
@@ -104,13 +110,13 @@ const BaseButtonInput = styled.button`
 export const MinusButton = styled(BaseButtonInput)`
   margin-left: 1.4375rem;
   padding-left: 0.5rem;
-  border-radius: 6px 6px 0;
+  border-radius: 6px 0px 0px 6px;
 `
 
 export const PlusButton = styled(BaseButtonInput)`
   margin-right: 0.5rem;
   padding-right: 0.5rem;
-  border-radius: 0px 6px 6px;
+  border-radius: 0px 6px 6px 0px;
 `
 
 export const ButtonCart = styled.button`
