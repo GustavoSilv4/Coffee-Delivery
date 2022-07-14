@@ -1,6 +1,12 @@
+import { useState } from 'react'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
+
 import imageCoffee from '../../assets/image-coffee.png'
+import americano from '../../assets/Products/Americano.png'
+import expresso from '../../assets/Products/Expresso.png'
+import cremoso from '../../assets/Products/Expresso-Cremoso.png'
 import { Card } from './Card'
+
 import {
   CardContainer,
   HomeContainer,
@@ -12,6 +18,30 @@ import {
 } from './styles'
 
 export function Home() {
+  const [ProductList] = useState([
+    {
+      id: '1',
+      name: 'Expresso Tradicional',
+      description: 'O tradicional café feito com água quente e grãos moídos',
+      image: expresso,
+      types: { traditional: true, special: true },
+    },
+    {
+      id: '2',
+      name: 'Expresso Americano',
+      description: 'Expresso diluído, menos intenso que o tradicional',
+      image: americano,
+      types: { special: true, iced: true, alcoholic: true },
+    },
+    {
+      id: '3',
+      name: 'Expresso Cremoso',
+      description: 'Café expresso tradicional com espuma cremosa',
+      image: cremoso,
+      types: { traditional: true, special: true },
+    },
+  ])
+
   return (
     <HomeContainer>
       <HomeSectionTextContainer>
@@ -63,15 +93,17 @@ export function Home() {
       <SectionProducts>
         <h2>Nossos cafés</h2>
         <CardContainer>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {ProductList.map((product) => {
+            return (
+              <Card
+                key={product.id}
+                name={product.name}
+                description={product.description}
+                image={product.image}
+                types={product.types}
+              />
+            )
+          })}
         </CardContainer>
       </SectionProducts>
     </HomeContainer>
