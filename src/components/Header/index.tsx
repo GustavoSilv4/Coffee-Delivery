@@ -1,7 +1,9 @@
-import { HeaderContainer, InfoContainer } from './styles'
+import { NavLink } from 'react-router-dom'
+import { ButtonCart, HeaderContainer, InfoContainer, Location } from './styles'
+
+import { MapPin, ShoppingCart } from 'phosphor-react'
 
 import logoCoffee from '../../assets/logo-coffee.svg'
-import { MapPin, ShoppingCart } from 'phosphor-react'
 
 interface HeaderProps {
   location?: string
@@ -12,13 +14,16 @@ export function Header({ location = 'A definir' }: HeaderProps) {
     <HeaderContainer>
       <img src={logoCoffee} alt="" />
       <InfoContainer>
-        <span>
+        <Location>
           <MapPin size={22} color="#8047F8" weight="fill" />
           {location}
-        </span>
-        <span>
-          <ShoppingCart size={22} weight="fill" />
-        </span>
+        </Location>
+
+        <NavLink to="/checkout">
+          <ButtonCart>
+            <ShoppingCart size={22} weight="fill" />
+          </ButtonCart>
+        </NavLink>
       </InfoContainer>
     </HeaderContainer>
   )
