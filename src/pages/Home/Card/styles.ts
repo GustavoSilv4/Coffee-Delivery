@@ -105,6 +105,10 @@ const BaseButtonInput = styled.button`
 
   color: ${(props) => props.theme['purple-500']};
   background: ${(props) => props.theme['gray-300']};
+
+  &:hover {
+    color: ${(props) => props.theme['purple-900']};
+  }
 `
 
 export const MinusButton = styled(BaseButtonInput)`
@@ -130,4 +134,8 @@ export const ButtonCart = styled.button`
 
   color: ${(props) => props.theme['white-200']};
   background-color: ${(props) => props.theme['purple-900']};
+
+  &:hover {
+    background-color: ${(props) => props.theme['purple-500']};
+  }
 `
