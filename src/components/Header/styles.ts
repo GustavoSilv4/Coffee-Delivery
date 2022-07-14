@@ -4,32 +4,32 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   margin: 2rem 10rem;
+`
 
-  span:nth-child(1) {
-    padding: 0.5rem;
-    border-radius: 6px;
+export const Location = styled.span`
+  padding: 0.5rem;
+  border-radius: 6px;
 
-    font-size: 0.875;
-    line-height: 1.3;
+  font-size: 0.875rem;
+  line-height: 1.3;
 
-    background-color: ${(props) => props.theme['purple-100']};
-    color: ${(props) => props.theme['purple-900']};
+  background-color: ${(props) => props.theme['purple-100']};
+  color: ${(props) => props.theme['purple-900']};
 
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+`
 
-  span:nth-child(2) {
-    padding: 0.5rem;
-    border-radius: 6px;
+export const ButtonCart = styled.span`
+  padding: 0.5rem;
+  border-radius: 6px;
 
-    background-color: ${(props) => props.theme['yellow-100']};
-    color: ${(props) => props.theme['yellow-900']};
+  background-color: ${(props) => props.theme['yellow-100']};
+  color: ${(props) => props.theme['yellow-900']};
 
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
 `
 
 export const InfoContainer = styled.div`
