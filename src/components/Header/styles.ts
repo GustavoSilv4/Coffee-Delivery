@@ -56,6 +56,12 @@ export const ButtonCart = styled.span<ButtonProps>`
     content: '${(props) => String(props.quantityProduct)}';
     display: ${(props) => (props.quantityProduct > 0 ? 'inline' : 'none')};
   }
+
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: ${(props) => props.theme.yellow};
+  }
 `
 
 export const InfoContainer = styled.div`
