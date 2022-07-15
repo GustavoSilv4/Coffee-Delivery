@@ -7,9 +7,13 @@ import logoCoffee from '../../assets/logo-coffee.svg'
 
 interface HeaderProps {
   location?: string
+  quantityProduct?: number
 }
 
-export function Header({ location = 'A definir' }: HeaderProps) {
+export function Header({
+  location = 'A definir',
+  quantityProduct = 1,
+}: HeaderProps) {
   return (
     <HeaderContainer>
       <img src={logoCoffee} alt="" />
@@ -20,7 +24,7 @@ export function Header({ location = 'A definir' }: HeaderProps) {
         </Location>
 
         <NavLink to="/checkout">
-          <ButtonCart>
+          <ButtonCart quantityProduct={quantityProduct}>
             <ShoppingCart size={22} weight="fill" />
           </ButtonCart>
         </NavLink>
