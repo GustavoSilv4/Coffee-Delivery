@@ -26,14 +26,14 @@ export const HomeSectionTextTitle = styled.div`
     font-size: 3rem;
     line-height: 1.3;
 
-    color: ${(props) => props.theme['brown-900']};
+    color: ${(props) => props.theme['base-title']};
   }
 
   span {
     font-size: 1.25rem;
     line-height: 1.3;
 
-    color: ${(props) => props.theme['brown-800']};
+    color: ${(props) => props.theme['base-subtitle']};
   }
 `
 export const HomeSectionTextTSubTitle = styled.div`
@@ -50,7 +50,7 @@ export const HomeSectionTextTSubTitle = styled.div`
     font-size: 1rem;
     font-weight: normal;
 
-    color: ${(props) => props.theme['brown-700']};
+    color: ${(props) => props.theme['base-text']};
 
     display: flex;
     justify-content: flex-start;
@@ -64,7 +64,7 @@ export const HomeSectionTextTSubTitle = styled.div`
     padding: 0.5rem;
     border-radius: 1000px;
 
-    background-color: ${(props) => props.theme['yellow-900']};
+    background-color: ${(props) => props.theme['yellow-dark']};
   }
 
   div:nth-child(1) > h4:nth-child(2) > span {
@@ -73,7 +73,7 @@ export const HomeSectionTextTSubTitle = styled.div`
     padding: 0.5rem;
     border-radius: 1000px;
 
-    background-color: ${(props) => props.theme['yellow-500']};
+    background-color: ${(props) => props.theme.yellow};
   }
 
   div:nth-child(2) > h4:nth-child(1) > span {
@@ -82,7 +82,7 @@ export const HomeSectionTextTSubTitle = styled.div`
     padding: 0.5rem;
     border-radius: 1000px;
 
-    background-color: ${(props) => props.theme['brown-700']};
+    background-color: ${(props) => props.theme['base-text']};
   }
 
   div:nth-child(2) > h4:nth-child(2) > span {
@@ -91,7 +91,7 @@ export const HomeSectionTextTSubTitle = styled.div`
     padding: 0.5rem;
     border-radius: 1000px;
 
-    background-color: ${(props) => props.theme['purple-500']};
+    background-color: ${(props) => props.theme.purple};
   }
 `
 
@@ -103,7 +103,7 @@ export const SectionProducts = styled.section`
     font-size: 2rem;
     line-height: 1.3;
 
-    color: ${(props) => props.theme[`brown-800`]};
+    color: ${(props) => props.theme[`base-subtitle`]};
   }
 `
 

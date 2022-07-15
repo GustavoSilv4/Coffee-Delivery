@@ -6,7 +6,7 @@ export const CardContainer = styled.div`
   margin: 3.375rem 0rem 0rem;
   padding: 1.25rem 1.5rem;
 
-  background-color: ${(props) => props.theme['gray-400']};
+  background-color: ${(props) => props.theme['base-hover']};
 
   display: flex;
   flex-direction: column;
@@ -31,8 +31,8 @@ export const Type = styled.span`
   font-weight: bold;
   line-height: 1.3;
 
-  color: ${(props) => props.theme['yellow-900']};
-  background-color: ${(props) => props.theme['yellow-100']};
+  color: ${(props) => props.theme['yellow-dark']};
+  background-color: ${(props) => props.theme['yellow-light']};
 `
 
 export const Name = styled.h3`
@@ -42,7 +42,7 @@ export const Name = styled.h3`
 
   margin-bottom: 0.5rem;
 
-  color: ${(props) => props.theme['brown-800']};
+  color: ${(props) => props.theme['base-subtitle']};
 `
 
 export const Description = styled.span`
@@ -52,7 +52,7 @@ export const Description = styled.span`
 
   margin-bottom: 2.0625rem;
 
-  color: ${(props) => props.theme['brown-600']};
+  color: ${(props) => props.theme['base-label']};
 `
 export const SelectContainer = styled.div`
   display: flex;
@@ -66,7 +66,7 @@ export const Price = styled.h3`
   font-size: 1.5rem;
   line-height: 1.3;
 
-  color: ${(props) => props.theme['brown-700']};
+  color: ${(props) => props.theme['base-text']};
 
   span {
     font-family: 'Roboto', sans-serif;
@@ -76,7 +76,7 @@ export const Price = styled.h3`
 
     margin-right: 0.25rem;
 
-    color: ${(props) => props.theme['brown-700']};
+    color: ${(props) => props.theme['base-text']};
   }
 `
 
@@ -92,7 +92,7 @@ export const QuantityInput = styled.input`
     margin: 0;
   }
 
-  background: ${(props) => props.theme['gray-300']};
+  background: ${(props) => props.theme['base-button']};
 `
 
 const BaseButtonInput = styled.button`
@@ -103,11 +103,11 @@ const BaseButtonInput = styled.button`
   display: flex;
   align-items: center;
 
-  color: ${(props) => props.theme['purple-500']};
-  background: ${(props) => props.theme['gray-300']};
+  color: ${(props) => props.theme.purple};
+  background: ${(props) => props.theme['base-button']};
 
   &:hover {
-    color: ${(props) => props.theme['purple-900']};
+    color: ${(props) => props.theme['purple-dark']};
   }
 `
 
@@ -132,10 +132,10 @@ export const ButtonCart = styled.button`
   display: flex;
   align-items: center;
 
-  color: ${(props) => props.theme['white-200']};
-  background-color: ${(props) => props.theme['purple-900']};
+  color: ${(props) => props.theme.white};
+  background-color: ${(props) => props.theme['purple-dark']};
 
   &:hover {
-    background-color: ${(props) => props.theme['purple-500']};
+    background-color: ${(props) => props.theme.purple};
   }
 `
