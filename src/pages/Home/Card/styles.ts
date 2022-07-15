@@ -106,6 +106,8 @@ const BaseButtonInput = styled.button`
   color: ${(props) => props.theme.purple};
   background: ${(props) => props.theme['base-button']};
 
+  transition: background-color 0.2s;
+
   &:hover {
     color: ${(props) => props.theme['purple-dark']};
   }
@@ -135,6 +137,7 @@ export const ButtonCart = styled.button`
   color: ${(props) => props.theme.white};
   background-color: ${(props) => props.theme['purple-dark']};
 
+  transition: background-color 0.2s;
   &:hover {
     background-color: ${(props) => props.theme.purple};
   }
