@@ -8,6 +8,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   margin: 2rem 10rem;
+  padding-bottom: 2rem;
 `
 
 export const Location = styled.span`
