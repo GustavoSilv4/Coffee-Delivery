@@ -86,6 +86,7 @@ export const RemoverButton = styled.button`
   font-weight: normal;
   border: none;
   border-radius: 6px;
+  cursor: pointer;
 
   padding: 0.45rem;
 
@@ -99,5 +100,7 @@ export const RemoverButton = styled.button`
 export const Price = styled.h5`
   font-size: 1rem;
   font-weight: bold;
+
+  margin-left: 3.125rem;
   color: ${(props) => props.theme['base-text']};
 `
