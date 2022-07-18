@@ -21,7 +21,7 @@ interface CardProps {
 }
 
 export function Card({ name, quantityProduct, id }: CardProps) {
-  const { changeQuantityProduct } = useContext(OrderContext)
+  const { changeQuantityProduct, removeOrder } = useContext(OrderContext)
 
   const initialQuantity = quantityProduct
 
@@ -35,6 +35,10 @@ export function Card({ name, quantityProduct, id }: CardProps) {
       })
     }
   }, [quantity, id, quantityProduct, changeQuantityProduct])
+
+  const handleDeleteOrder = () => {
+    removeOrder(id)
+  }
 
   const handleChangeQuantity = (event: ChangeEvent<HTMLInputElement>) => {
     const newQuantity = Number(event.target.value)
@@ -73,7 +77,7 @@ export function Card({ name, quantityProduct, id }: CardProps) {
             <PlusButton onClick={handlePlusQuantity}>
               <Plus size={14} weight="bold" />
             </PlusButton>
-            <RemoverButton>
+            <RemoverButton onClick={handleDeleteOrder}>
               <Trash size={16} color="#8047F8" />
               REMOVER
             </RemoverButton>
