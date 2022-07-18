@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface PaymentTypeProps {
+  paymentType: string
+}
+
 export const CheckoutContainer = styled.main`
   display: flex;
   gap: 2rem;
@@ -133,15 +137,39 @@ export const ButtonPayment = styled.button`
   color: ${(props) => props.theme['base-text']};
 
   transition: background-color 0.1s;
+`
 
+export const Credit = styled(ButtonPayment)<PaymentTypeProps>`
   &:hover:not(:active) {
     background-color: ${(props) => props.theme['base-hover']};
   }
 
-  &:active {
-    outline: 1px solid ${(props) => props.theme.purple};
-    background-color: ${(props) => props.theme['purple-light']};
+  ${(props) =>
+    props.paymentType === 'Credit' ? 'outline: 1px solid #8047F8' : 'none'};
+  ${(props) =>
+    props.paymentType === 'Credit' ? 'background-color: #EBE5F9' : 'none'};
+`
+
+export const Debit = styled(ButtonPayment)<PaymentTypeProps>`
+  &:hover:not(:active) {
+    background-color: ${(props) => props.theme['base-hover']};
   }
+
+  ${(props) =>
+    props.paymentType === 'Debit' ? 'outline: 1px solid #8047F8' : 'none'};
+  ${(props) =>
+    props.paymentType === 'Debit' ? 'background-color: #EBE5F9' : 'none'};
+`
+
+export const MoneyPay = styled(ButtonPayment)<PaymentTypeProps>`
+  &:hover:not(:active) {
+    background-color: ${(props) => props.theme['base-hover']};
+  }
+
+  ${(props) =>
+    props.paymentType === 'Money' ? 'outline: 1px solid #8047F8' : 'none'};
+  ${(props) =>
+    props.paymentType === 'Money' ? 'background-color: #EBE5F9' : 'none'};
 `
 
 export const BoxRight = styled.div`

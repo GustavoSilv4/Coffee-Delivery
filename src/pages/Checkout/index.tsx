@@ -5,7 +5,7 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { OrderContext } from '../../contexts/OrderContext'
 import { Card } from './Card'
 import {
@@ -16,10 +16,11 @@ import {
   BoxPayment,
   BoxPaymentSubtitle,
   BoxRight,
-  ButtonPayment,
+  Credit,
   ButtonsPaymentContainer,
   CheckoutContainer,
   ConfirmButton,
+  Debit,
   DeliveryPrice,
   Form,
   InputBairro,
@@ -29,12 +30,15 @@ import {
   InputNum,
   InputRua,
   InputUF,
+  MoneyPay,
   TotalOrders,
   TotalPrice,
 } from './styles'
 
 export function Checkout() {
   const { orders } = useContext(OrderContext)
+
+  const [paymentType, setPaymentType] = useState('')
 
   return (
     <CheckoutContainer>
@@ -73,18 +77,24 @@ export function Checkout() {
             </div>
           </BoxPaymentSubtitle>
           <ButtonsPaymentContainer>
-            <ButtonPayment>
+            <Credit
+              onClick={(e) => setPaymentType('Credit')}
+              paymentType={paymentType}>
               <CreditCard size={16} color="#8047F8" />
               CARTÃO DE CRÉDITO
-            </ButtonPayment>
-            <ButtonPayment>
+            </Credit>
+            <Debit
+              onClick={(e) => setPaymentType('Debit')}
+              paymentType={paymentType}>
               <Bank size={16} color="#8047F8" />
               CARTÃO DE DÉBITO
-            </ButtonPayment>
-            <ButtonPayment>
+            </Debit>
+            <MoneyPay
+              onClick={(e) => setPaymentType('Money')}
+              paymentType={paymentType}>
               <Money size={16} color="#8047F8" />
               DINHEIRO
-            </ButtonPayment>
+            </MoneyPay>
           </ButtonsPaymentContainer>
         </BoxPayment>
       </BoxLeft>
