@@ -58,7 +58,8 @@ const addressFormValidationSchema = zod.object({
 type AddressFormData = zod.infer<typeof addressFormValidationSchema> // Aqui infiro(automatizo) a tipagem do formulario através do objeto de validacao
 
 export function Checkout() {
-  const { orders, registerAddress } = useContext(OrderContext)
+  const { orders, registerAddress, registerPaymentType } =
+    useContext(OrderContext)
 
   const { register, reset, handleSubmit } = useForm<AddressFormData>({
     resolver: zodResolver(addressFormValidationSchema), // Passo o esquema de validacao para o resolver -> resolver do zod
@@ -79,8 +80,11 @@ export function Checkout() {
   const [paymentType, setPaymentType] = useState('')
 
   const handleRegisterToDelivery = (data: AddressFormData) => {
-    registerAddress(data)
-    reset() // Reseta o formulario após ser submetido
+    if (paymentType !== '') {
+      registerAddress(data)
+      registerPaymentType(paymentType)
+      reset() // Reseta o formulario após ser submetido
+    }
   }
 
   return (
