@@ -3,7 +3,11 @@ import styled from 'styled-components'
 export const CheckoutContainer = styled.main`
   display: flex;
   gap: 2rem;
-  margin: 0rem 10rem;
+  justify-content: center;
+
+  @media (min-width: 1400px) {
+    margin: 0rem 10rem;
+  }
 `
 export const BoxLeft = styled.div`
   max-width: 40.5rem;
@@ -150,23 +154,49 @@ export const BoxRight = styled.div`
 `
 
 export const BoxCheckout = styled.div`
-  max-width: 28rem;
+  width: 28rem;
   padding: 2.2rem;
   background-color: ${(props) => props.theme['base-card']};
 
   border-radius: 6px 44px 6px 44px;
+`
 
-  div {
-    display: flex;
-    justify-content: space-between;
+export const TotalOrders = styled.div`
+  display: flex;
+  justify-content: space-between;
 
-    span {
-      font-size: 0.875rem;
-      font-weight: normal;
-      font-family: inherit;
-      color: ${(props) => props.theme['base-text']};
-      margin-bottom: 0.75rem;
-    }
+  span {
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-family: inherit;
+    color: ${(props) => props.theme['base-text']};
+    margin-bottom: 0.75rem;
+  }
+`
+
+export const DeliveryPrice = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-family: inherit;
+    color: ${(props) => props.theme['base-text']};
+    margin-bottom: 0.75rem;
+  }
+`
+
+export const TotalPrice = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    font-size: 0.875rem;
+    font-weight: normal;
+    font-family: inherit;
+    color: ${(props) => props.theme['base-text']};
+    margin-bottom: 0.75rem;
   }
 `
 
