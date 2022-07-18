@@ -20,6 +20,7 @@ import {
   ButtonsPaymentContainer,
   CheckoutContainer,
   ConfirmButton,
+  DeliveryPrice,
   Form,
   InputBairro,
   InputCEP,
@@ -28,6 +29,8 @@ import {
   InputNum,
   InputRua,
   InputUF,
+  TotalOrders,
+  TotalPrice,
 } from './styles'
 
 export function Checkout() {
@@ -97,18 +100,18 @@ export function Checkout() {
               quantityProduct={order.quantity}
             />
           ))}
-          <div>
+          <TotalOrders>
             <span>Total de itens</span>
             <span>R$ 29,70</span>
-          </div>
-          <div>
+          </TotalOrders>
+          <DeliveryPrice>
             <span>Entrega</span>
             <span>R$ 3,50</span>
-          </div>
-          <div>
+          </DeliveryPrice>
+          <TotalPrice>
             <h3>Total</h3>
             <h3>R$ 33,20</h3>
-          </div>
+          </TotalPrice>
           <ConfirmButton>CONFIRMAR PEDIDO</ConfirmButton>
         </BoxCheckout>
       </BoxRight>
