@@ -27,6 +27,7 @@ interface OrderContextType {
   changeQuantityProduct: (data: ChangeOrderQuantity) => void
   removeOrder: (id: number) => void
   registerAddress: (data: AddressFormProps) => void
+  registerPaymentType: (type: string) => void
 }
 
 export const OrderContext = createContext({} as OrderContextType)
@@ -45,7 +46,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     rua: '',
     UF: '',
   })
-  // const [paymentType, setPaymentType] = useState('')
+  const [paymentType, setPaymentType] = useState('')
 
   const createNewOrder = (data: OrderProps) => {
     const newOrder = {
@@ -82,6 +83,10 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     })
   }
 
+  const registerPaymentType = (type: string) => {
+    setPaymentType(type)
+  }
+  console.log(paymentType)
   console.log(address)
   console.log(orders)
 
@@ -92,6 +97,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
         changeQuantityProduct,
         removeOrder,
         registerAddress,
+        registerPaymentType,
         orders,
       }}>
       {children}
