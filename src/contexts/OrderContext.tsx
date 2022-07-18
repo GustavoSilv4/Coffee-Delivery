@@ -10,10 +10,12 @@ interface ChangeOrderQuantity {
   id: number
   newQuantity: number
 }
+
 interface OrderContextType {
-  createNewOrder: (data: OrderProps) => void
   orders: OrderProps[]
+  createNewOrder: (data: OrderProps) => void
   changeQuantityProduct: (data: ChangeOrderQuantity) => void
+  removeOrder: (id: number) => void
 }
 
 export const OrderContext = createContext({} as OrderContextType)
@@ -43,11 +45,17 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     )
   }
 
+  const removeOrder = (id: number) => {
+    const filteredOrders = orders.filter((order) => order.id !== id)
+
+    setOrders((state) => (state = filteredOrders))
+  }
+
   console.log(orders)
 
   return (
     <OrderContext.Provider
-      value={{ createNewOrder, changeQuantityProduct, orders }}>
+      value={{ createNewOrder, changeQuantityProduct, removeOrder, orders }}>
       {children}
     </OrderContext.Provider>
   )
