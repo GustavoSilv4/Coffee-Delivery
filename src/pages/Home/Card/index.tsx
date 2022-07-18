@@ -1,4 +1,6 @@
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useContext, useState } from 'react'
+
+import { OrderContext } from '../../../contexts/OrderContext'
 
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import {
@@ -30,6 +32,8 @@ interface CardProps {
 }
 
 export function Card({ name, description, image, types }: CardProps) {
+  const {} = useContext(OrderContext)
+
   const [quantity, setQuantity] = useState(0)
 
   const handleChangeQuantity = (event: ChangeEvent<HTMLInputElement>) => {
