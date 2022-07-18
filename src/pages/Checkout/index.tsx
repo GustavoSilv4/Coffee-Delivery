@@ -5,6 +5,8 @@ import {
   MapPinLine,
   Money,
 } from 'phosphor-react'
+import { useContext } from 'react'
+import { OrderContext } from '../../contexts/OrderContext'
 import { Card } from './Card'
 import {
   BoxCheckout,
@@ -29,6 +31,8 @@ import {
 } from './styles'
 
 export function Checkout() {
+  const { orders } = useContext(OrderContext)
+
   return (
     <CheckoutContainer>
       <BoxLeft>
@@ -85,8 +89,14 @@ export function Checkout() {
       <BoxRight>
         <h2>Cafés selecionados</h2>
         <BoxCheckout>
-          <Card />
-          <Card />
+          {orders.map((order) => (
+            <Card
+              key={order.id}
+              id={order.id}
+              name={order.name}
+              quantityProduct={order.quantity}
+            />
+          ))}
           <div>
             <span>Total de itens</span>
             <span>R$ 29,70</span>
