@@ -11,11 +11,22 @@ interface ChangeOrderQuantity {
   newQuantity: number
 }
 
+interface AddressFormProps {
+  bairro: string
+  cep: string
+  cidade: string
+  complemento?: string
+  numero: string
+  rua: string
+  UF: string
+}
+
 interface OrderContextType {
   orders: OrderProps[]
   createNewOrder: (data: OrderProps) => void
   changeQuantityProduct: (data: ChangeOrderQuantity) => void
   removeOrder: (id: number) => void
+  registerAddress: (data: AddressFormProps) => void
 }
 
 export const OrderContext = createContext({} as OrderContextType)
@@ -26,6 +37,15 @@ interface OrderContextProviderProps {
 
 export function OrderContextProvider({ children }: OrderContextProviderProps) {
   const [orders, setOrders] = useState<OrderProps[]>([])
+  const [address, setAddress] = useState<AddressFormProps>({
+    bairro: '',
+    cep: '',
+    cidade: '',
+    numero: '',
+    rua: '',
+    UF: '',
+  })
+  // const [paymentType, setPaymentType] = useState('')
 
   const createNewOrder = (data: OrderProps) => {
     const newOrder = {
@@ -51,11 +71,29 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     setOrders((state) => (state = filteredOrders))
   }
 
+  const registerAddress = (data: AddressFormProps) => {
+    setAddress({
+      bairro: data.bairro,
+      cep: data.cep,
+      cidade: data.cidade,
+      numero: data.numero,
+      rua: data.rua,
+      UF: data.UF,
+    })
+  }
+
+  console.log(address)
   console.log(orders)
 
   return (
     <OrderContext.Provider
-      value={{ createNewOrder, changeQuantityProduct, removeOrder, orders }}>
+      value={{
+        createNewOrder,
+        changeQuantityProduct,
+        removeOrder,
+        registerAddress,
+        orders,
+      }}>
       {children}
     </OrderContext.Provider>
   )
