@@ -1,6 +1,7 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import Americano from '../../../assets/Products/Americano.png'
+import { OrderContext } from '../../../contexts/OrderContext'
 import {
   CardBox,
   CardContainer,
@@ -13,20 +14,43 @@ import {
   RemoverButton,
 } from './styles'
 
-export function Card() {
-  const [quantity, setQuantity] = useState(0)
+interface CardProps {
+  id: number
+  name: string
+  quantityProduct: number
+}
+
+export function Card({ name, quantityProduct, id }: CardProps) {
+  const { changeQuantityProduct } = useContext(OrderContext)
+
+  const initialQuantity = quantityProduct
+
+  const [quantity, setQuantity] = useState(initialQuantity)
+
+  useEffect(() => {
+    if (quantityProduct !== quantity) {
+      changeQuantityProduct({
+        id,
+        newQuantity: quantity,
+      })
+    }
+  }, [quantity, id, quantityProduct, changeQuantityProduct])
 
   const handleChangeQuantity = (event: ChangeEvent<HTMLInputElement>) => {
     const newQuantity = Number(event.target.value)
-    setQuantity(newQuantity)
+    setQuantity((state) => (state = newQuantity))
   }
 
   const handleMinusQuantity = () => {
-    setQuantity((state) => state - 1)
+    if (quantity > 0) {
+      setQuantity((state) => state - 1)
+    }
   }
 
   const handlePlusQuantity = () => {
-    setQuantity((state) => state + 1)
+    if (quantity < 10) {
+      setQuantity((state) => state + 1)
+    }
   }
 
   return (
@@ -34,7 +58,7 @@ export function Card() {
       <img src={Americano} alt="" />
       <CardBox>
         <InfoBox>
-          <h3>Expresso Tradicional</h3>
+          <h3>{name}</h3>
           <InputBox>
             <MinusButton onClick={handleMinusQuantity}>
               <Minus size={14} weight="bold" />
@@ -44,6 +68,7 @@ export function Card() {
               value={String(quantity)}
               max={10}
               onChange={handleChangeQuantity}
+              readOnly
             />
             <PlusButton onClick={handlePlusQuantity}>
               <Plus size={14} weight="bold" />
