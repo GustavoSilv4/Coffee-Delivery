@@ -4,16 +4,16 @@ import { ButtonCart, HeaderContainer, InfoContainer, Location } from './styles'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 
 import logoCoffee from '../../assets/logo-coffee.svg'
+import { useContext } from 'react'
+import { OrderContext } from '../../contexts/OrderContext'
 
 interface HeaderProps {
   location?: string
-  quantityProduct?: number
 }
 
-export function Header({
-  location = 'A definir',
-  quantityProduct = 1,
-}: HeaderProps) {
+export function Header({ location = 'A definir' }: HeaderProps) {
+  const { orders } = useContext(OrderContext)
+
   return (
     <HeaderContainer>
       <img src={logoCoffee} alt="" />
@@ -24,7 +24,7 @@ export function Header({
         </Location>
 
         <NavLink to="/checkout">
-          <ButtonCart quantityProduct={quantityProduct}>
+          <ButtonCart quantityProduct={orders.length}>
             <ShoppingCart size={22} weight="fill" />
           </ButtonCart>
         </NavLink>
