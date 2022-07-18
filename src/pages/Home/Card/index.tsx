@@ -32,7 +32,7 @@ interface CardProps {
 }
 
 export function Card({ name, description, image, types }: CardProps) {
-  const {} = useContext(OrderContext)
+  const { createNewOrder } = useContext(OrderContext)
 
   const [quantity, setQuantity] = useState(0)
 
@@ -51,6 +51,14 @@ export function Card({ name, description, image, types }: CardProps) {
     if (quantity < 10) {
       setQuantity((state) => state + 1)
     }
+  }
+
+  const handleCreateNewOrder = () => {
+    createNewOrder({
+      id: new Date().getTime(),
+      name,
+      quantity,
+    })
   }
 
   return (
@@ -81,7 +89,7 @@ export function Card({ name, description, image, types }: CardProps) {
         <PlusButton onClick={handlePlusQuantity}>
           <Plus size={14} weight="bold" />
         </PlusButton>
-        <ButtonCart>
+        <ButtonCart onClick={handleCreateNewOrder}>
           <ShoppingCart size={22} weight="fill" />
         </ButtonCart>
       </SelectContainer>
