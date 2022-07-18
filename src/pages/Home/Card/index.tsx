@@ -85,6 +85,7 @@ export function Card({ name, description, image, types }: CardProps) {
           value={String(quantity)}
           max={10}
           onChange={handleChangeQuantity}
+          readOnly
         />
         <PlusButton onClick={handlePlusQuantity}>
           <Plus size={14} weight="bold" />
