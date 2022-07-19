@@ -4,6 +4,7 @@ export interface OrderProps {
   id: number
   name: string
   image: string
+  price: number
   quantity: number
 }
 
@@ -54,6 +55,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
       id: data.id,
       image: data.image,
       name: data.name,
+      price: data.price,
       quantity: data.quantity,
     }
 
