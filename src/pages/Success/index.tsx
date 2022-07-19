@@ -1,6 +1,8 @@
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useContext } from 'react'
 
 import Ilustracao from '../../assets/Illustration.svg'
+import { OrderContext } from '../../contexts/OrderContext'
 import {
   BoxInfo,
   BoxTitleAndSubtitle,
@@ -12,6 +14,8 @@ import {
 } from './styles'
 
 export function Success() {
+  const { address, paymentType } = useContext(OrderContext)
+
   return (
     <SuccessContainer>
       <BoxTitleAndSubtitle>
@@ -26,9 +30,14 @@ export function Success() {
             </MapIcon>
             <div>
               <h5>
-                Entrega em <span>Rua João Daniel Martinelli, 102</span>
+                Entrega em{' '}
+                <span>
+                  {address.rua}, {address.numero}
+                </span>
               </h5>
-              <h5>Farrapos - Porto Alegre, RS</h5>
+              <h5>
+                {address.bairro} - {address.cidade}, {address.UF}
+              </h5>
             </div>
           </div>
           <div>
@@ -45,8 +54,12 @@ export function Success() {
               <CurrencyDollar size={16} weight="fill" color="white" />
             </DollarIcon>
             <div>
-              <h5>Previsão de entrega</h5>
-              <span>20 min - 30 min </span>
+              <h5>Pagamento na entrega</h5>
+              <span>
+                {paymentType === 'Credit' && 'Cartão de Credito'}
+                {paymentType === 'Debit' && 'Cartão de Debito'}
+                {paymentType === 'Money' && 'Dinheiro'}
+              </span>
             </div>
           </div>
         </Info>
