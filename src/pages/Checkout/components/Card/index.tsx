@@ -1,7 +1,6 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { ChangeEvent, useContext, useEffect, useState } from 'react'
-import Americano from '../../../assets/Products/Americano.png'
-import { OrderContext } from '../../../contexts/OrderContext'
+import { OrderContext } from '../../../../contexts/OrderContext'
 import {
   CardBox,
   CardContainer,
@@ -17,10 +16,11 @@ import {
 interface CardProps {
   id: number
   name: string
+  image: string
   quantityProduct: number
 }
 
-export function Card({ name, quantityProduct, id }: CardProps) {
+export function Card({ name, quantityProduct, id, image }: CardProps) {
   const { changeQuantityProduct, removeOrder } = useContext(OrderContext)
 
   const initialQuantity = quantityProduct
@@ -59,7 +59,7 @@ export function Card({ name, quantityProduct, id }: CardProps) {
 
   return (
     <CardContainer>
-      <img src={Americano} alt="" />
+      <img src={image} alt="" />
       <CardBox>
         <InfoBox>
           <h3>{name}</h3>

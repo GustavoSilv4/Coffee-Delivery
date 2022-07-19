@@ -3,6 +3,7 @@ import { createContext, ReactNode, useState } from 'react'
 export interface OrderProps {
   id: number
   name: string
+  image: string
   quantity: number
 }
 
@@ -51,6 +52,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   const createNewOrder = (data: OrderProps) => {
     const newOrder = {
       id: data.id,
+      image: data.image,
       name: data.name,
       quantity: data.quantity,
     }

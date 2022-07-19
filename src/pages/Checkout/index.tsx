@@ -12,7 +12,7 @@ import {
 } from 'phosphor-react'
 import { useContext, useState } from 'react'
 import { OrderContext } from '../../contexts/OrderContext'
-import { Card } from './Card'
+import { Card } from './components/Card'
 import {
   BoxCheckout,
   BoxForm,
@@ -177,6 +177,7 @@ export function Checkout() {
               key={order.id}
               id={order.id}
               name={order.name}
+              image={order.image}
               quantityProduct={order.quantity}
             />
           ))}

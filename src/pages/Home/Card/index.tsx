@@ -56,6 +56,7 @@ export function Card({ name, description, image, types }: CardProps) {
   const handleCreateNewOrder = () => {
     createNewOrder({
       id: new Date().getTime(),
+      image,
       name,
       quantity,
     })
