@@ -75,6 +75,7 @@ export function Home() {
                 description={product.description}
                 image={product.image}
                 types={product.types}
+                price={product.price}
               />
             )
           })}
