@@ -17,10 +17,11 @@ interface CardProps {
   id: number
   name: string
   image: string
+  price: number
   quantityProduct: number
 }
 
-export function Card({ name, quantityProduct, id, image }: CardProps) {
+export function Card({ name, quantityProduct, id, image, price }: CardProps) {
   const { changeQuantityProduct, removeOrder } = useContext(OrderContext)
 
   const initialQuantity = quantityProduct
@@ -57,6 +58,11 @@ export function Card({ name, quantityProduct, id, image }: CardProps) {
     }
   }
 
+  const convertNumberToStringWithComma = (number: number) => {
+    const numberToString = String(number.toFixed(2))
+    return numberToString.replace('.', ',')
+  }
+
   return (
     <CardContainer>
       <img src={image} alt="" />
@@ -83,7 +89,7 @@ export function Card({ name, quantityProduct, id, image }: CardProps) {
             </RemoverButton>
           </InputBox>
         </InfoBox>
-        <Price>R$ 9,90</Price>
+        <Price>R$ {convertNumberToStringWithComma(price)}</Price>
       </CardBox>
     </CardContainer>
   )
