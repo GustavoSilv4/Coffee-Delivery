@@ -2,10 +2,21 @@ import styled from 'styled-components'
 
 export const SuccessContainer = styled.main`
   margin: 0rem 10rem;
+
+  @media (min-width: 1400px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const BoxTitleAndSubtitle = styled.div`
   margin-bottom: 2.5rem;
+
+  @media (min-width: 1400px) {
+    text-align: center;
+  }
+
   h1 {
     font-family: 'Baloo 2', cursive;
     font-size: 2rem;
