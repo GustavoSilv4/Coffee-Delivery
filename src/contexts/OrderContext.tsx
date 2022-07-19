@@ -25,11 +25,14 @@ interface AddressFormProps {
 
 interface OrderContextType {
   orders: OrderProps[]
+  address: AddressFormProps
+  paymentType: string
   createNewOrder: (data: OrderProps) => void
   changeQuantityProduct: (data: ChangeOrderQuantity) => void
   removeOrder: (id: number) => void
   registerAddress: (data: AddressFormProps) => void
   registerPaymentType: (type: string) => void
+  resetOrderList: () => void
 }
 
 export const OrderContext = createContext({} as OrderContextType)
@@ -90,6 +93,11 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   const registerPaymentType = (type: string) => {
     setPaymentType(type)
   }
+
+  const resetOrderList = () => {
+    setOrders((state) => (state = []))
+  }
+
   console.log(paymentType)
   console.log(address)
   console.log(orders)
@@ -102,7 +110,10 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
         removeOrder,
         registerAddress,
         registerPaymentType,
+        resetOrderList,
         orders,
+        address,
+        paymentType,
       }}>
       {children}
     </OrderContext.Provider>
