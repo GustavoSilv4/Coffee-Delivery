@@ -16,6 +16,19 @@ import {
 export function Checkout() {
   const { orders } = useContext(OrderContext)
 
+  const baseDeliveryPrice = 3.5
+
+  const totalPriceOrder = orders.reduce((acumulador, elemento) => {
+    return (acumulador += elemento.price * elemento.quantity)
+  }, 0)
+
+  const totalPriceOrderWithDelivery = totalPriceOrder + baseDeliveryPrice
+
+  const convertNumberToStringWithComma = (number: number) => {
+    const numberToString = String(number.toFixed(2))
+    return numberToString.replace('.', ',')
+  }
+
   return (
     <CheckoutContainer>
       <BoxLeft>
@@ -32,20 +45,27 @@ export function Checkout() {
               id={order.id}
               name={order.name}
               image={order.image}
+              price={order.price}
               quantityProduct={order.quantity}
             />
           ))}
           <TotalOrders>
             <span>Total de itens</span>
-            <span>R$ 29,70</span>
+            <span>R$ {convertNumberToStringWithComma(totalPriceOrder)}</span>
           </TotalOrders>
           <DeliveryPrice>
             <span>Entrega</span>
-            <span>R$ 3,50</span>
+            <span>R$ {convertNumberToStringWithComma(baseDeliveryPrice)}</span>
           </DeliveryPrice>
           <TotalPrice>
             <h3>Total</h3>
-            <h3>R$ 33,20</h3>
+            <h3>
+              R${' '}
+              {convertNumberToStringWithComma(totalPriceOrderWithDelivery) ===
+              convertNumberToStringWithComma(baseDeliveryPrice)
+                ? '0,00'
+                : convertNumberToStringWithComma(totalPriceOrderWithDelivery)}
+            </h3>
           </TotalPrice>
           <ConfirmButton type="submit" form="form-delivery">
             CONFIRMAR PEDIDO
