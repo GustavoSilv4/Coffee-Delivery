@@ -29,6 +29,7 @@ import {
   InputUF,
   MoneyPay,
 } from './styles'
+import { useNavigate } from 'react-router-dom'
 
 const addressFormValidationSchema = zod.object({
   // Aqui crio o esquema de validacao do form
@@ -48,7 +49,10 @@ const addressFormValidationSchema = zod.object({
 type AddressFormData = zod.infer<typeof addressFormValidationSchema> // Aqui infiro(automatizo) a tipagem do formulario através do objeto de validacao
 
 export function FormAddress() {
-  const { registerAddress, registerPaymentType } = useContext(OrderContext)
+  const { registerAddress, registerPaymentType, resetOrderList } =
+    useContext(OrderContext)
+
+  const navigate = useNavigate()
 
   const { register, reset, handleSubmit } = useForm<AddressFormData>({
     resolver: zodResolver(addressFormValidationSchema), // Passo o esquema de validacao para o resolver -> resolver do zod
@@ -68,12 +72,14 @@ export function FormAddress() {
 
   const [paymentType, setPaymentType] = useState('')
 
-  const handleRegisterAddress = (data: AddressFormData) => {
+  const handleRegisterAddressAndSuccess = (data: AddressFormData) => {
     if (paymentType !== '') {
       registerAddress(data)
       registerPaymentType(paymentType)
       reset() // Reseta o formulario após ser submetido
       setPaymentType('')
+      navigate('/success', { replace: true })
+      resetOrderList()
     }
   }
 
@@ -87,7 +93,9 @@ export function FormAddress() {
             <span>Informe o endereço onde deseja receber seu pedido</span>
           </div>
         </BoxFormSubtitle>
-        <Form onSubmit={handleSubmit(handleRegisterAddress)} id="form-delivery">
+        <Form
+          onSubmit={handleSubmit(handleRegisterAddressAndSuccess)}
+          id="form-delivery">
           <InputCEP
             type="text"
             maxLength={10}
