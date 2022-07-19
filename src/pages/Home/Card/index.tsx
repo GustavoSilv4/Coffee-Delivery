@@ -27,11 +27,12 @@ interface TypesCoffee {
 interface CardProps {
   image: string
   name: string
+  price: string
   description: string
   types: TypesCoffee
 }
 
-export function Card({ name, description, image, types }: CardProps) {
+export function Card({ name, description, image, types, price }: CardProps) {
   const { createNewOrder } = useContext(OrderContext)
 
   const [quantity, setQuantity] = useState(0)
@@ -53,11 +54,14 @@ export function Card({ name, description, image, types }: CardProps) {
     }
   }
 
+  const formatPrice = price.replace(',', '.')
+
   const handleCreateNewOrder = () => {
     createNewOrder({
       id: new Date().getTime(),
       image,
       name,
+      price: Number(formatPrice),
       quantity,
     })
   }
@@ -76,7 +80,8 @@ export function Card({ name, description, image, types }: CardProps) {
       <Description>{description}</Description>
       <SelectContainer>
         <Price>
-          <span>R$</span>9,90
+          <span>R$</span>
+          {price}
         </Price>
         <MinusButton onClick={handleMinusQuantity}>
           <Minus size={14} weight="bold" />
