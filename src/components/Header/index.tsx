@@ -12,7 +12,7 @@ interface HeaderProps {
 }
 
 export function Header({ location = 'A definir' }: HeaderProps) {
-  const { orders } = useContext(OrderContext)
+  const { orders, address } = useContext(OrderContext)
 
   return (
     <HeaderContainer>
@@ -20,7 +20,9 @@ export function Header({ location = 'A definir' }: HeaderProps) {
       <InfoContainer>
         <Location>
           <MapPin size={22} color="#8047F8" weight="fill" />
-          {location}
+          {address.cidade === '' && address.UF === ''
+            ? 'A definir'
+            : `${address.cidade}, ${address.UF}`}
         </Location>
 
         <NavLink to="/checkout">
