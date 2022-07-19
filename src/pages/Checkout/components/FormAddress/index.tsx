@@ -68,7 +68,7 @@ export function FormAddress() {
 
   const [paymentType, setPaymentType] = useState('')
 
-  const handleRegisterToDelivery = (data: AddressFormData) => {
+  const handleRegisterAddress = (data: AddressFormData) => {
     if (paymentType !== '') {
       registerAddress(data)
       registerPaymentType(paymentType)
@@ -87,9 +87,7 @@ export function FormAddress() {
             <span>Informe o endereço onde deseja receber seu pedido</span>
           </div>
         </BoxFormSubtitle>
-        <Form
-          onSubmit={handleSubmit(handleRegisterToDelivery)}
-          id="form-delivery">
+        <Form onSubmit={handleSubmit(handleRegisterAddress)} id="form-delivery">
           <InputCEP
             type="text"
             maxLength={10}
