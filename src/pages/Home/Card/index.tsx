@@ -57,13 +57,15 @@ export function Card({ name, description, image, types, price }: CardProps) {
   const formatPrice = price.replace(',', '.')
 
   const handleCreateNewOrder = () => {
-    createNewOrder({
-      id: new Date().getTime(),
-      image,
-      name,
-      price: Number(formatPrice),
-      quantity,
-    })
+    if (quantity !== 0) {
+      createNewOrder({
+        id: new Date().getTime(),
+        image,
+        name,
+        price: Number(formatPrice),
+        quantity,
+      })
+    }
   }
 
   return (
