@@ -98,10 +98,6 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     setOrders((state) => (state = []))
   }
 
-  console.log(paymentType)
-  console.log(address)
-  console.log(orders)
-
   return (
     <OrderContext.Provider
       value={{
