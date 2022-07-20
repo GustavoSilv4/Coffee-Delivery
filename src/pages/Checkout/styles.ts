@@ -32,9 +32,18 @@ export const BoxRight = styled.div`
 export const BoxCheckout = styled.div`
   width: 28rem;
   padding: 2.2rem;
+
   background-color: ${(props) => props.theme['base-card']};
 
   border-radius: 6px 44px 6px 44px;
+`
+
+export const CardContainer = styled.div`
+  overflow-y: scroll;
+  max-height: 20rem;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export const TotalOrders = styled.div`

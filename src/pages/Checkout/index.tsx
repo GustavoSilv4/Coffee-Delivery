@@ -6,6 +6,7 @@ import {
   BoxCheckout,
   BoxLeft,
   BoxRight,
+  CardContainer,
   CheckoutContainer,
   ConfirmButton,
   DeliveryPrice,
@@ -39,16 +40,18 @@ export function Checkout() {
       <BoxRight>
         <h2>Cafés selecionados</h2>
         <BoxCheckout>
-          {orders.map((order) => (
-            <Card
-              key={order.id}
-              id={order.id}
-              name={order.name}
-              image={order.image}
-              price={order.price}
-              quantityProduct={order.quantity}
-            />
-          ))}
+          <CardContainer>
+            {orders.map((order) => (
+              <Card
+                key={order.id}
+                id={order.id}
+                name={order.name}
+                image={order.image}
+                price={order.price}
+                quantityProduct={order.quantity}
+              />
+            ))}
+          </CardContainer>
           <TotalOrders>
             <span>Total de itens</span>
             <span>R$ {convertNumberToStringWithComma(totalPriceOrder)}</span>
