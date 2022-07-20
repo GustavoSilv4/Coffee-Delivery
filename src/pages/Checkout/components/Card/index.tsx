@@ -47,7 +47,7 @@ export function Card({ name, quantityProduct, id, image, price }: CardProps) {
   }
 
   const handleMinusQuantity = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity((state) => state - 1)
     }
   }
