@@ -48,8 +48,8 @@ export const ButtonCart = styled.span<ButtonProps>`
     left: 1.75rem;
     bottom: 1.6rem;
 
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1rem;
+    height: 1rem;
 
     background-color: ${(props) => props.theme['yellow-dark']};
     color: ${(props) => props.theme.white};
