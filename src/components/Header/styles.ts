@@ -9,6 +9,16 @@ export const HeaderContainer = styled.header`
   justify-content: space-between;
   margin: 2rem 10rem;
   padding-bottom: 2rem;
+
+  @media (max-width: 640px) {
+    margin: 2rem 2rem 0;
+  }
+`
+
+export const InfoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 `
 
 export const Location = styled.span`
@@ -63,10 +73,4 @@ export const ButtonCart = styled.span<ButtonProps>`
   &:hover {
     background-color: ${(props) => props.theme.yellow};
   }
-`
-
-export const InfoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
 `

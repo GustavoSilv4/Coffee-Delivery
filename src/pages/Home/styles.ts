@@ -2,6 +2,14 @@ import styled from 'styled-components'
 
 export const HomeContainer = styled.main`
   margin: 0 10rem;
+
+  @media (max-width: 640px) {
+    margin: 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `
 
 export const HomeSectionTextContainer = styled.section`
@@ -10,6 +18,13 @@ export const HomeSectionTextContainer = styled.section`
   justify-content: center;
   align-items: flex-start;
   gap: 3.5rem;
+
+  @media (max-width: 640px) {
+    > div > img {
+      display: none;
+    }
+    gap: 0;
+  }
 `
 
 export const HomeSectionText = styled.div`
@@ -105,6 +120,13 @@ export const SectionProducts = styled.section`
 
     color: ${(props) => props.theme[`base-subtitle`]};
   }
+
+  @media (max-width: 640px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `
 
 export const CardContainer = styled.div`
@@ -113,4 +135,11 @@ export const CardContainer = styled.div`
   justify-content: flex-start;
   flex-wrap: wrap;
   column-gap: 2rem;
+
+  @media (max-width: 640px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `

@@ -8,6 +8,10 @@ export const SuccessContainer = styled.main`
     flex-direction: column;
     align-items: center;
   }
+
+  @media (max-width: 640px) {
+    margin: 2rem 1rem 0rem;
+  }
 `
 
 export const BoxTitleAndSubtitle = styled.div`
@@ -35,6 +39,16 @@ export const BoxTitleAndSubtitle = styled.div`
 export const BoxInfo = styled.div`
   display: flex;
   gap: 6.375rem;
+
+  @media (max-width: 640px) {
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    > img {
+      display: none;
+    }
+  }
 `
 
 export const Info = styled.div`
@@ -78,6 +92,15 @@ export const Info = styled.div`
         color: ${(props) => props.theme['base-text']};
         font-weight: bold;
       }
+    }
+  }
+
+  @media (max-width: 640px) {
+    border: 1px solid black;
+    background: none;
+
+    > div {
+      margin-right: 0;
     }
   }
 `

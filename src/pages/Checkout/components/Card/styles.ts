@@ -103,4 +103,9 @@ export const Price = styled.h5`
 
   margin-left: 3.125rem;
   color: ${(props) => props.theme['base-text']};
+
+  @media (max-width: 640px) {
+    margin-left: 0;
+    font-size: 0.85rem;
+  }
 `

@@ -9,6 +9,10 @@ export const BoxForm = styled.div`
   background-color: ${(props) => props.theme['base-card']};
   border-radius: 6px;
   margin-bottom: 0.75rem;
+
+  @media (max-width: 640px) {
+    margin: 0 0.5rem;
+  }
 `
 
 export const BoxFormSubtitle = styled.div`
@@ -37,6 +41,9 @@ export const BoxFormSubtitle = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  @media (max-width: 640px) {
+    /* flex-direction: row; */
+  }
 `
 
 const BaseInputForm = styled.input`
@@ -55,37 +62,68 @@ const BaseInputForm = styled.input`
 `
 export const InputCEP = styled(BaseInputForm)`
   width: 12.5rem;
+  @media (max-width: 640px) {
+    width: 20rem;
+  }
 `
 
-export const InputRua = styled(BaseInputForm)``
+export const InputRua = styled(BaseInputForm)`
+  @media (max-width: 640px) {
+    width: 20rem;
+  }
+`
 
 export const InputNum = styled(BaseInputForm)`
   width: 12.5rem;
   margin-right: 0.75rem;
+
+  @media (max-width: 640px) {
+    width: 10rem;
+  }
 `
 
 export const InputComplemento = styled(BaseInputForm)`
   width: 22rem;
+
+  @media (max-width: 640px) {
+    width: 20rem;
+  }
 `
 
 export const InputBairro = styled(BaseInputForm)`
   width: 12.5rem;
   margin-right: 0.75rem;
+
+  @media (max-width: 640px) {
+    width: 20rem;
+  }
 `
 
 export const InputCidade = styled(BaseInputForm)`
   width: 17.5rem;
   margin-right: 0.75rem;
+
+  @media (max-width: 640px) {
+    width: 10rem;
+  }
 `
 
 export const InputUF = styled(BaseInputForm)`
   width: 3.75rem;
+
+  @media (max-width: 640px) {
+    width: 4.06rem;
+  }
 `
 
 export const BoxPayment = styled.div`
   padding: 2.5rem;
   background-color: ${(props) => props.theme['base-card']};
   border-radius: 6px;
+
+  @media (max-width: 640px) {
+    margin: 0 0.5rem;
+  }
 `
 export const BoxPaymentSubtitle = styled.div`
   height: 2.75rem;
@@ -112,6 +150,12 @@ export const BoxPaymentSubtitle = styled.div`
 export const ButtonsPaymentContainer = styled.div`
   display: flex;
   gap: 0.75rem;
+
+  @media (max-width: 640px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 `
 
 export const ButtonPayment = styled.button`

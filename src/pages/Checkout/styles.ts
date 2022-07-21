@@ -8,9 +8,20 @@ export const CheckoutContainer = styled.main`
   @media (min-width: 1400px) {
     margin: 0rem 10rem;
   }
+
+  @media (max-width: 640px) {
+    display: block;
+  }
 `
 export const BoxLeft = styled.div`
   max-width: 40.5rem;
+
+  @media (max-width: 640px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   h2 {
     margin-bottom: 1rem;
@@ -21,6 +32,13 @@ export const BoxLeft = styled.div`
 `
 
 export const BoxRight = styled.div`
+  @media (max-width: 640px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
   h2 {
     font-size: 1.125rem;
     font-family: 'Baloo 2', cursive;
@@ -36,6 +54,11 @@ export const BoxCheckout = styled.div`
   background-color: ${(props) => props.theme['base-card']};
 
   border-radius: 6px 44px 6px 44px;
+
+  @media (max-width: 640px) {
+    width: 23.5rem;
+    margin: 0rem 0.75rem;
+  }
 `
 
 export const CardContainer = styled.div`
