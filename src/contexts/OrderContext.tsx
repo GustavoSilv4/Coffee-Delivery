@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from 'react'
+import produce from 'immer'
 
 export interface OrderProps {
   id: number
@@ -66,28 +67,32 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   }
 
   const changeQuantityProduct = ({ newQuantity, id }: ChangeOrderQuantity) => {
-    setOrders((prevOrder) =>
-      prevOrder.map((order) =>
-        order.id === id ? { ...order, quantity: newQuantity } : order
+    const productWithNewQuantity = produce(orders, (draft) => {
+      draft.map((order) =>
+        order.id === id ? (order.quantity = newQuantity) : order
       )
-    )
+    })
+
+    setOrders(productWithNewQuantity)
   }
 
   const removeOrder = (id: number) => {
     const filteredOrders = orders.filter((order) => order.id !== id)
 
-    setOrders((state) => (state = filteredOrders))
+    setOrders(filteredOrders)
   }
 
   const registerAddress = (data: AddressFormProps) => {
-    setAddress({
+    const newAddress = {
       bairro: data.bairro,
       cep: data.cep,
       cidade: data.cidade,
       numero: data.numero,
       rua: data.rua,
       UF: data.UF,
-    })
+    }
+
+    setAddress(newAddress)
   }
 
   const registerPaymentType = (type: string) => {
@@ -95,7 +100,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   }
 
   const resetOrderList = () => {
-    setOrders((state) => (state = []))
+    setOrders([])
   }
 
   return (
