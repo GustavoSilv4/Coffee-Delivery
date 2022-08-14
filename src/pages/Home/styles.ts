@@ -1,25 +1,18 @@
 import styled from 'styled-components'
 
-export const HomeContainer = styled.main`
-  margin: 0 10rem;
-
-  @media (max-width: 640px) {
-    margin: 0rem 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`
+export const HomeContainer = styled.main``
 
 export const HomeSectionTextContainer = styled.section`
-  min-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 3.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 
-  @media (max-width: 640px) {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @media (max-width: 800px) {
     > div > img {
       display: none;
     }
@@ -111,7 +104,10 @@ export const HomeSectionTextTSubTitle = styled.div`
 `
 
 export const SectionProducts = styled.section`
-  margin: 8.75rem 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 7rem auto;
+  padding: 0 1.5rem;
 
   h2 {
     font-family: 'Baloo 2', cursive;
@@ -131,14 +127,14 @@ export const SectionProducts = styled.section`
 
 export const CardContainer = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 0.5fr);
   column-gap: 2rem;
 
-  @media (max-width: 640px) {
+  @media (max-width: 1180px) {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
   }

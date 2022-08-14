@@ -1,16 +1,18 @@
 import styled from 'styled-components'
 
 export const CheckoutContainer = styled.main`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
   display: flex;
-  gap: 2rem;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 1rem;
 
-  @media (min-width: 1400px) {
-    margin: 0rem 10rem;
-  }
-
-  @media (max-width: 640px) {
-    display: block;
+  @media (max-width: 1140px) {
+    flex-direction: column;
+    align-items: center;
   }
 `
 export const BoxLeft = styled.div`

@@ -5,14 +5,13 @@ interface ButtonProps {
 }
 
 export const HeaderContainer = styled.header`
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+
   display: flex;
   justify-content: space-between;
-  margin: 2rem 10rem;
-  padding-bottom: 2rem;
-
-  @media (max-width: 640px) {
-    margin: 2rem 2rem 0;
-  }
 `
 
 export const InfoContainer = styled.div`

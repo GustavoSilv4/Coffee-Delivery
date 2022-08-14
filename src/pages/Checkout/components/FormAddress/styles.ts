@@ -11,7 +11,7 @@ export const BoxForm = styled.div`
   margin-bottom: 0.75rem;
 
   @media (max-width: 640px) {
-    margin: 0 0.5rem;
+    margin: 0 0.5rem 0.75rem;
   }
 `
 
