@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { OrderContext } from '../../contexts/OrderContext'
+import { convertNumberToStringWithComma } from '../../utils/convertNumberToStringWithComma'
 import { Card } from './components/Card'
 import { FormAddress } from './components/FormAddress'
 import {
@@ -24,11 +25,6 @@ export function Checkout() {
   }, 0)
 
   const totalPriceOrderWithDelivery = totalPriceOrder + baseDeliveryPrice
-
-  const convertNumberToStringWithComma = (number: number) => {
-    const numberToString = String(number.toFixed(2))
-    return numberToString.replace('.', ',')
-  }
 
   return (
     <CheckoutContainer>

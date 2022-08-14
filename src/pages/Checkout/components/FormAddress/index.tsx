@@ -99,7 +99,7 @@ export function FormAddress() {
           <InputCEP
             type="text"
             maxLength={10}
-            placeholder="CEP"
+            placeholder="CEP (Ex: 12.345-678)"
             {...register('cep')}
           />
           <InputRua type="text" placeholder="Rua" {...register('rua')} />

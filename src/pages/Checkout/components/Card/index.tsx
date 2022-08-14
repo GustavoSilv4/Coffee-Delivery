@@ -1,6 +1,7 @@
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { ChangeEvent, useContext, useEffect, useState } from 'react'
 import { OrderContext } from '../../../../contexts/OrderContext'
+import { convertNumberToStringWithComma } from '../../../../utils/convertNumberToStringWithComma'
 import {
   CardBox,
   CardContainer,
@@ -56,11 +57,6 @@ export function Card({ name, quantityProduct, id, image, price }: CardProps) {
     if (quantity < 10) {
       setQuantity((state) => state + 1)
     }
-  }
-
-  const convertNumberToStringWithComma = (number: number) => {
-    const numberToString = String(number.toFixed(2))
-    return numberToString.replace('.', ',')
   }
 
   return (
